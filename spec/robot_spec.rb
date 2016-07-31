@@ -48,4 +48,80 @@ describe Robot do
       end
     end
   end
+
+  context "on_board?" do
+    it "should return false if x,y,face are nil" do
+      expect( robot.on_board? ).to eq( false )
+    end
+
+    it "should return false if x,y,face are not nil" do
+      robot.x, robot.y = [ 1, 1 ]
+      robot.face = 'NORTH'
+      expect( robot.on_board? ).to eq( true )
+    end
+  end
+
+  context "find_index" do
+    it "should return 0" do
+      robot.face = 'NORTH'
+      expect( robot.send "find_index" ).to eq(0)
+    end
+
+    it "should return 3" do
+      robot.face = 'WEST'
+      expect( robot.send "find_index" ).to eq(3)
+    end
+  end
+
+  context "turn_left" do
+    it "should change facing from NORTH to WEST" do
+      facing = 'NORTH'
+      robot.face = facing
+      expect{ robot.turn_left }.to change{ robot.face }.from( facing ).to( 'WEST' )
+    end
+
+    it "should change facing from WEST to SOUTH" do
+      facing = 'WEST'
+      robot.face = facing
+      expect{ robot.turn_left }.to change{ robot.face }.from( facing ).to( 'SOUTH' )
+    end
+
+    it "should change facing from SOUTH to EAST" do
+      facing = 'SOUTH'
+      robot.face = facing
+      expect{ robot.turn_left }.to change{ robot.face }.from( facing ).to( 'EAST' )
+    end
+
+    it "should change facing from EAST to NORTH" do
+      facing = 'EAST'
+      robot.face = facing
+      expect{ robot.turn_left }.to change{ robot.face }.from( facing ).to( 'NORTH' )
+    end
+  end
+
+  context "turn_right" do
+    it "should change facing from NORTH to EAST" do
+      facing = 'NORTH'
+      robot.face = facing
+      expect{ robot.turn_right }.to change{ robot.face }.from( facing ).to( 'EAST' )
+    end
+
+    it "should change facing from EAST to SOUTH" do
+      facing = 'EAST'
+      robot.face = facing
+      expect{ robot.turn_right }.to change{ robot.face }.from( facing ).to( 'SOUTH' )
+    end
+
+    it "should change facing from SOUTH to WEST" do
+      facing = 'SOUTH'
+      robot.face = facing
+      expect{ robot.turn_right }.to change{ robot.face }.from( facing ).to( 'WEST' )
+    end
+
+    it "should change facing from WEST to NORTH" do
+      facing = 'WEST'
+      robot.face = facing
+      expect{ robot.turn_right }.to change{ robot.face }.from( facing ).to( 'NORTH' )
+    end
+  end
 end
