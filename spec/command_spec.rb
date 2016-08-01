@@ -66,7 +66,18 @@ describe Command do
 
   context "parse_command" do
     context "with valid data" do
-      it { expect( command.parse_command 'LEFT'   ).to eq( false ) }
+      it { expect( command.parse_command 'REPORT' ).to eq( false ) }
+    end
+
+    context "with valid data" do
+      it "with PLACE command should set robot on board" do
+        expect{ command.parse_command "PLACE 1,1,NORTH" }.to change{ robot.on_board? }.from( false ).to( true )
+      end
+
+      it "with MOVE command should change coordinates" do
+        robot_on_board
+        expect{ command.parse_command "MOVE" }.to change{ [robot.x, robot.y] }.from( [1,1] ).to( [1,2] )
+      end
     end
   end
 
