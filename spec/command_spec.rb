@@ -1,5 +1,4 @@
 require 'command'
-require 'byebug'
 
 describe Command do
   let(:robot) { Robot.new }

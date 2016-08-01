@@ -1,5 +1,4 @@
 require 'robot'
-require 'byebug'
 
 describe Robot do
   let(:robot) { Robot.new }

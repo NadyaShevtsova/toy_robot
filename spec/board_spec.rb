@@ -1,5 +1,4 @@
 require 'board'
-require 'byebug'
 
 describe Board do
 

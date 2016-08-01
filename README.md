@@ -6,21 +6,21 @@
 * Any movement that would result in the robot falling from the table must be prevented, however further valid movement commands must still be allowed.
 * Any move that would cause the robot to fall must be ignored.
 * The origin (0,0) can be considered to be the SOUTH WEST most corner
-* Input data can be provided with input.txt file or with manual input. 
+* Input data can be provided with input.txt file or with manual input.
 
 ### Available Commands
 
 #### PLACE X,Y,FACING
 puts the toy robot on the table in position X,Y and facing NORTH, SOUTH, EAST or WEST. It's first valid command to the robot, after that, any sequence of commands may be issued, in any order.
 
-#### MOVE 
+#### MOVE
 moves the toy robot one unit forward in the direction it is currently facing.
 
 **LEFT** and **RIGHT**
 
 rotateS the robot 90 degrees in the specified direction without changing the position of the robot.
 
-#### REPORT 
+#### REPORT
 announceS the X,Y and orientation of the robot.
 
 ### Installing
@@ -29,7 +29,7 @@ announceS the X,Y and orientation of the robot.
 	cd toy_robot
 	gem install bundler
 	bundle install
-	
+
 ### Using
 input data manually:
 
@@ -39,10 +39,10 @@ input data manually:
 	MOVE
 	REPORT
 	Output: 0,1,NORTH
-	
+
 input data from file input.txt:
 
-	$ cat input.txt | ruby main.rb 
+	$ cat input.txt | ruby main.rb
 	Put robot on the desc:
 	Output: 0,1,NORTH
 	Output: 0,0,WEST
@@ -58,7 +58,7 @@ input data from file input.txt:
 ### Tests
 Execute tests with "rspec spec":
 
-	$ rspec spec  
+	$ rspec spec
 	x or y coordinate is not a number. Please enter valid command.
 	..x or y coordinate is not a number. Please enter valid command.
 	..x or y coordinate is not a number. Please enter valid command.
@@ -83,7 +83,7 @@ Execute tests with "rspec spec":
 	..............Facing has not found among permitted attributes. Please enter valid command.
 	.Facing has not found among permitted attributes. Please enter valid command.
 	...............
-	Finished in 0.03838 seconds (files took 0.25075 seconds to load)
+	Finished in 0.03192 seconds (files took 0.1294 seconds to load)
 	85 examples, 0 failures
 
-
+	Coverage report generated for RSpec to /Users/nadyashevtsova/dev/toy_robot/coverage. 277 / 277 LOC (100.0%) covered.
