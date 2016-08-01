@@ -1,4 +1,4 @@
-require 'robot'
+require './lib/robot'
 
 class Command
   COMMANDS = [ 'PLACE', 'MOVE', 'REPORT', 'LEFT', 'RIGHT' ]

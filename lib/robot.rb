@@ -1,4 +1,4 @@
-require 'board'
+require './lib/board'
 
 class Robot
   FACING = ['NORTH', 'EAST', 'SOUTH', 'WEST']
