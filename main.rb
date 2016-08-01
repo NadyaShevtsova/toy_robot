@@ -6,8 +6,8 @@ command = Command.new( robot )
 
 puts "Put robot on the desc: "
 
-str = gets.chomp
-while !str.empty? do
+while str = gets.to_s.chomp do
+  break if str == 'exit'
+  next if str.empty?
   command.parse_command str
-  str = gets.chomp
 end
