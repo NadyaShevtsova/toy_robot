@@ -24,9 +24,8 @@ describe Robot do
   end
 
   context "set_facing" do
-    context "with valid data should return true" do
+    context "with valid data should change facing from nil to NORTH" do
       it { expect{ robot.set_facing 'NORTH' }.to change{ robot.face }.from( nil ).to( 'NORTH' ) }
-      it { expect( robot.set_facing 'NORTH' ).to eq( true ) }
     end
 
     context "with invalid data should return true" do
@@ -37,15 +36,9 @@ describe Robot do
   end
 
   context "set_coordinates" do
-    context "with valid data" do
-      it "should return true" do
-        expect( robot.set_coordinates [ "0", "0" ] ).to eq( true )
-      end
-
-      context "should change set x, y coordinates" do
-        it { expect{ robot.set_coordinates [ "0", "0" ] }.to change{ robot.x }.from( nil ).to( 0 ) }
-        it { expect{ robot.set_coordinates [ "0", "0" ] }.to change{ robot.y }.from( nil ).to( 0 ) }
-      end
+    context "with valid data should change set x, y coordinates" do
+      it { expect{ robot.set_coordinates [ "0", "0" ] }.to change{ robot.x }.from( nil ).to( 0 ) }
+      it { expect{ robot.set_coordinates [ "0", "0" ] }.to change{ robot.y }.from( nil ).to( 0 ) }
     end
   end
 

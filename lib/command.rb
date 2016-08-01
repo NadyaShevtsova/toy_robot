@@ -12,7 +12,7 @@ class Command
     arr_str = str.split(' ')
     command = arr_str[0]
 
-    return false if !valid_command?( command )
+    return false unless valid_command?( command )
 
     if command == COMMANDS[0]
       send command.downcase, arr_str[1]
@@ -25,7 +25,6 @@ class Command
     args = str.to_s.split(',')
     return false unless @robot.set_coordinates( args[0..1] )
     return false unless @robot.set_facing( args[2] )
-    return true
   end
 
   def report
@@ -43,7 +42,6 @@ class Command
   def move
     x_addition, y_addition = TURN_RULES[@robot.face]
     return false unless @robot.set_coordinates( [ @robot.x + x_addition, @robot.y + y_addition ] )
-    return true
   end
 
   private

@@ -12,24 +12,19 @@ class Robot
 
   def set_coordinates coordinates
     return false unless Board.valid_coordinates? coordinates
-
     self.x, self.y  = [ Integer(coordinates[0]), Integer(coordinates[1]) ]
-    return true
   end
 
   def set_facing facing
-    if valid_facing? facing
-      self.face = facing
-      return true
-    else
+    unless valid_facing? facing
       puts "Facing has not found among permitted attributes. Please enter valid command."
       return false
     end
+    self.face = facing
   end
 
   def on_board?
-    return false unless self.x or self.y or self.face
-    true
+    !x.nil? and !y.nil? and !face.nil?
   end
 
   def turn_left
@@ -48,6 +43,6 @@ class Robot
   end
 
   def find_index
-    index = FACING.index{ |e| e == self.face}
+    FACING.index{ |e| e == face}
   end
 end

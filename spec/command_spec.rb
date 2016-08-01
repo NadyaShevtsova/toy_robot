@@ -78,16 +78,10 @@ describe Command do
   end
 
   context "place" do
-    context "with valid data" do
-      context "should set coordinates and facing for robot" do
-        it { expect{ command.place '0,0,NORTH' }.to change{ robot.face }.from( nil ).to( 'NORTH' ) }
-        it { expect{ command.place '0,0,NORTH' }.to change{ robot.x }.from( nil ).to( 0 ) }
-        it { expect{ command.place '0,0,NORTH' }.to change{ robot.y }.from( nil ).to( 0 ) }
-      end
-
-      context "should return true" do
-        it { expect( command.place '0,0,NORTH' ).to eq(true) }
-      end
+    context "with valid data should set coordinates and facing for robot" do
+      it { expect{ command.place '0,0,NORTH' }.to change{ robot.face }.from( nil ).to( 'NORTH' ) }
+      it { expect{ command.place '0,0,NORTH' }.to change{ robot.x }.from( nil ).to( 0 ) }
+      it { expect{ command.place '0,0,NORTH' }.to change{ robot.y }.from( nil ).to( 0 ) }
     end
 
     context "with invalid data" do
