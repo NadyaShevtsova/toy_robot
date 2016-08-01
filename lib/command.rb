@@ -15,7 +15,7 @@ class Command
     return false if !valid_command?( command )
 
     if command == COMMANDS[0]
-      send command.downcase, str_arr[1]
+      send command.downcase, arr_str[1]
     else
       send command.downcase
     end
